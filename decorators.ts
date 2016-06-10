@@ -55,3 +55,18 @@ export function Inject(arr: string[]): ClassDecorator {
         target.$inject = arr;
     };
 }
+
+export function Service(name: string): ClassDecorator {
+    return function (target: any): any {
+        angular.module(target.name, []).service(name, target);
+        return target;
+    };
+}
+
+export function Factory(name: string): ClassDecorator {
+    return function (target: any): any {
+        angular.module(target.name, []).factory(name, target.instance);
+        return target;
+    };
+}
+
