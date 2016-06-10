@@ -4,6 +4,7 @@ interface IComponentDef {
      */
     selector: string;
     components?: string[];
+    provides?: string[];
 }
 
 function dashToUppercase(str: string) {
@@ -24,10 +25,7 @@ export function Component(config: ng.IComponentOptions & IComponentDef): ClassDe
         componentOptions.require = config.require;
         componentOptions.transclude = config.transclude;
         delete target.prototype.zz$$bindings;
-
-        target.$inject = ["$q"];
-
-        angular.module(target.name, [])
+        angular.module(target.name, config.provides ? config.provides : [])
             .component(dashToUppercase(config.selector), componentOptions);
         return target;
     };
