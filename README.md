@@ -3,9 +3,11 @@ Decorators for angular 1.5 apps
 
 
 ##Examples
----
-##Component
-```
+
+Few examples..
+
+####Component
+```javascript
 @Component({
     selector: "hello-world",
     template: "<div> Hello {{$ctrl.text}} </div>",
