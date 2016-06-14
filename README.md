@@ -1,6 +1,8 @@
 # angularjs-decorators
 Decorators for angular 1.5 apps 
 
+######Note (14th June 2016)
+A new styleguide has been released (https://github.com/toddmotto/angular-styleguide) and the decorators will be refactored to support it
 
 ##Examples
 
